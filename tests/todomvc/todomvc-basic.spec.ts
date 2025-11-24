@@ -1,5 +1,5 @@
 import {test} from '@playwright/test';
-import { TodoPage } from '../../src/page-objects/TodoPage';
+import { TodoPage } from '../../src/page-objects/todomvc/TodoPage';
 
 const TODO_URL = 'http://demo.playwright.dev/todomvc/#/';
 

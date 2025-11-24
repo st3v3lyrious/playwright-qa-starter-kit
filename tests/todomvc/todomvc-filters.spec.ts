@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { TodoPage } from '../../src/page-objects/TodoPage';
+import { TodoPage } from '../../src/page-objects/todomvc/TodoPage';
 
 test.describe('TodoMVC - filters and completion', () => {
   test.beforeEach(async ({ page }) => {
