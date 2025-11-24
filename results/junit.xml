@@ -1,0 +1,25 @@
+<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="3.503125">
+<testsuite name="todomvc/todomvc-filters.spec.ts" timestamp="2025-11-24T19:22:04.534Z" hostname="chromium" tests="3" failures="0" skipped="0" time="4.65" errors="0">
+<testcase name="TodoMVC - filters and completion › can complete a todo and update counter" classname="todomvc/todomvc-filters.spec.ts" time="1.431">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/todomvc-todomvc-filters-To-9648d-e-a-todo-and-update-counter-chromium/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TodoMVC - filters and completion › filters Active vs Completed" classname="todomvc/todomvc-filters.spec.ts" time="1.748">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/todomvc-todomvc-filters-To-9958c-filters-Active-vs-Completed-chromium/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="TodoMVC - filters and completion › clear completed removes only completed todos" classname="todomvc/todomvc-filters.spec.ts" time="1.471">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/todomvc-todomvc-filters-To-58760-emoves-only-completed-todos-chromium/trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
