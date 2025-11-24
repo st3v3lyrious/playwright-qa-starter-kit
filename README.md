@@ -1,4 +1,7 @@
+
 # 🎭 Playwright QA Starter Kit (EN & FR)
+
+---
 
 # 🇬🇧 English Version
 
@@ -7,17 +10,19 @@
 A complete and professional starter kit for end-to-end testing with **Playwright + TypeScript**, featuring:
 
 - Modern **Page Object Model** architecture  
-- Component-based structure (filters, table, drawers, etc.)  
+- Component-based structure (filters, table, drawers, panels, etc.)  
 - Robust UI tests on Playwright’s official **TodoMVC** demo app  
-- A “production-style” Playwright config (trace, retries, HTML reports, CI-friendly)  
+- A “production-style” Playwright config (trace, retries, HTML/JUnit reports, CI-friendly)  
 - Clean repo layout, ideal for **freelance work** and **portfolio showcasing**
+
+---
 
 ## 📦 1. Installation
 
 ### Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/playwright-qa-starter-kit.git
+git clone https://github.com/st3v3lyrious/playwright-qa-starter-kit.git
 cd playwright-qa-starter-kit
 ```
 
@@ -32,6 +37,8 @@ npm install
 ```bash
 npx playwright install
 ```
+
+---
 
 ## ▶️ 2. Running the Tests
 
@@ -53,6 +60,8 @@ npx playwright test --ui
 npx playwright test tests/todomvc
 ```
 
+---
+
 ## 🏛 3. Project Structure
 
 ```
@@ -61,60 +70,43 @@ npx playwright test tests/todomvc
 │   └── page-objects/
 │       └── todomvc/
 │           └── TodoPage.ts
+│
 ├── tests/
 │   └── todomvc/
 │       ├── todomvc-basic.spec.ts
 │       └── todomvc-filters.spec.ts
+│
 ├── playwright.config.ts
 ├── package.json
 ├── README.md
 └── .gitignore
 ```
 
+---
+
 ## ⚙️ 4. Pro Playwright Config
 
-```ts
-import { defineConfig, devices } from '@playwright/test';
+### Main features:
 
-export default defineConfig({
-  testDir: './tests',
-  timeout: 30 * 1000,
-  expect: { timeout: 5000 },
+- Retries enabled in CI  
+- Trace on first failure  
+- HTML + JUnit reports  
+- Chromium / Firefox / WebKit projects  
+- Configurable `baseURL`  
+- Screenshots + videos on failure  
 
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 2 : undefined,
 
-  reporter: [
-    ['list'],
-    ['html', { open: 'never' }],
-    ['junit', { outputFile: 'results/junit.xml' }],
-  ],
+---
 
-  use: {
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
-    baseURL: 'https://demo.playwright.dev',
-    headless: true,
-  },
+## 🤖 5. Continuous Integration (GitHub Actions)
 
-  projects: [
-    { name: 'chromium', use: devices['Desktop Chrome'] },
-    { name: 'firefox', use: devices['Desktop Firefox'] },
-    { name: 'webkit', use: devices['Desktop Safari'] },
-  ],
-
-  fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  outputDir: 'test-results/',
-});
-```
-
-## 🤖 6. CI Integration (GitHub Actions)
+Create:
 
 ```
 .github/workflows/playwright.yml
 ```
+
+With:
 
 ```yaml
 name: Playwright Tests
@@ -139,6 +131,17 @@ jobs:
       - run: npx playwright test --reporter=line
 ```
 
+---
+
+## 🎯 7. Goal of This Project
+
+This starter kit is built to serve as:
+
+  - A training platform to grow QA engineering skills
+  - A professional portfolio asset
+  - A baseline for freelance missions
+  - A foundation for advanced topics (auth flow, API testing, K6, CI/CD…)
+
 # 🇫🇷 Version Française
 
 ## 🎭 Starter Kit Playwright QA (TypeScript)
@@ -150,6 +153,8 @@ Starter kit complet et professionnel pour les tests end-to-end avec **Playwright
 - Tests UI robustes sur l’appli officielle **TodoMVC**  
 - Configuration Playwright “pro” (traces, retries, CI, rapports)  
 - Parfait pour missions freelance & portfolio
+
+---
 
 ## 📦 1. Installation
 
@@ -172,6 +177,8 @@ npm install
 npx playwright install
 ```
 
+---
+
 ## ▶️ 2. Lancer les tests
 
 ### Tous les tests
@@ -192,6 +199,8 @@ npx playwright test --ui
 npx playwright test tests/todomvc
 ```
 
+---
+
 ## 🏛 3. Structure du projet
 
 ```
@@ -209,3 +218,28 @@ npx playwright test tests/todomvc
 ├── README.md
 └── .gitignore
 ```
+
+---
+
+## ⚙️ 4. Configuration Playwright (pro)
+
+- Retries en CI  
+- Traces et vidéos uniquement sur échec  
+- Rapport HTML + JUnit  
+- Tests multi-navigateurs  
+- `baseURL` configurable  
+
+---
+
+## 🤖 5. Integration Continue (GitHub Actions)
+
+Identique à la section anglaise :
+voir `.github/workflows/playwright.yml.`
+
+## 🎯 6. Objectif du projet
+
+Ce starter kit vise à :
+  - servir de plateforme d’apprentissage QA moderne
+  - constituer un portfolio professionnel
+  - être utilisé comme base lors de missions freelance
+  - préparer des flows plus avancés : login, API, perf tests, K6…
