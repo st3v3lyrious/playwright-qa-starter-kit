@@ -45,7 +45,10 @@ test.describe('Restful API Dev - objects', () => {
     expect(getResponse.ok()).toBeTruthy();
 
     const fetched = await getResponse.json();
-    expect(fetched).toMatchObject(created);
+    expect(fetched.id).toBe(id);
+    expect(fetched.name).toBe('QA test object');
+    expect(fetched.data.owner).toBe('playwright');  
+    expect(fetched.data.type).toBe('demo');  
   });
 
   test('can delete an object and receive 404 afterwards', async ({ request }) => {
@@ -105,6 +108,9 @@ test.describe('Restful API Dev - objects', () => {
     expect(getResponse.ok()).toBeTruthy();
     expect(getResponse.status()).toBe(200);
     const fetched = await getResponse.json();
-    expect(fetched).toMatchObject(updated);
+    expect(fetched.id).toBe(id);
+    expect(fetched.name).toBe('Updated object name');
+    expect(fetched.data.version).toBe(2);
+    expect(fetched.data.updated).toBe(true);
   });
 });
