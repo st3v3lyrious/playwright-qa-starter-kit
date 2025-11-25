@@ -60,6 +60,12 @@ npx playwright test --ui
 npx playwright test tests/todomvc
 ```
 
+### Run only API tests
+
+```bash
+npm run test:api
+```
+
 ---
 
 ## 🏛 3. Project Structure
@@ -70,11 +76,15 @@ npx playwright test tests/todomvc
 │   └── page-objects/
 │       └── todomvc/
 │           └── TodoPage.ts
+│   └── api/
+│       └── restfulApiClient.ts
 │
 ├── tests/
 │   └── todomvc/
-│       ├── todomvc-basic.spec.ts
+│       └── todomvc-basic.spec.ts
 │       └── todomvc-filters.spec.ts
+│   └── api/
+│       └── restful-api.spec.ts
 │
 ├── playwright.config.ts
 ├── package.json
@@ -94,7 +104,6 @@ npx playwright test tests/todomvc
 - Chromium / Firefox / WebKit projects  
 - Configurable `baseURL`  
 - Screenshots + videos on failure  
-
 
 ---
 
@@ -133,6 +142,23 @@ jobs:
 
 ---
 
+## 🧪 6. API Testing (Playwright APIRequestContext)
+
+This project also includes automated API tests using Playwright’s built-in `APIRequestContext`.  
+A small reusable API client (`RestfulApiClient`) is provided to simplify GET, POST, PUT, and DELETE calls
+to the demo API at https://api.restful-api.dev/.
+
+### ✨ Capabilities included
+
+- GET existing objects  
+- POST new custom objects  
+- PUT to update an object  
+- DELETE objects and verify 404  
+- Validation of JSON responses  
+- End-to-end lifecycle testing (create → update → verify → delete)
+
+---
+
 ## 🎯 7. Goal of This Project
 
 This starter kit is built to serve as:
@@ -141,6 +167,8 @@ This starter kit is built to serve as:
   - A professional portfolio asset
   - A baseline for freelance missions
   - A foundation for advanced topics (auth flow, API testing, K6, CI/CD…)
+
+---
 
 # 🇫🇷 Version Française
 
@@ -199,25 +227,17 @@ npx playwright test --ui
 npx playwright test tests/todomvc
 ```
 
+### Tests API uniquement
+
+```bash
+npm run test:api
+```
+
 ---
 
 ## 🏛 3. Structure du projet
 
-```
-/
-├── src/
-│   └── page-objects/
-│       └── todomvc/
-│           └── TodoPage.ts
-├── tests/
-│   └── todomvc/
-│       ├── todomvc-basic.spec.ts
-│       └── todomvc-filters.spec.ts
-├── playwright.config.ts
-├── package.json
-├── README.md
-└── .gitignore
-```
+Se référer à la structure dans la version anglaise.
 
 ---
 
@@ -236,7 +256,26 @@ npx playwright test tests/todomvc
 Identique à la section anglaise :
 voir `.github/workflows/playwright.yml.`
 
-## 🎯 6. Objectif du projet
+---
+
+## 🧪 6. Tests API (Playwright APIRequestContext)
+
+Le projet inclut également des tests API automatisés utilisant `APIRequestContext` de Playwright.
+Un petit client réutilisable (`RestfulApiClient`) simplifie les appels GET, POST, PUT et DELETE
+vers l’API de démonstration https://api.restful-api.dev/.
+
+### ✨ Fonctionnalités incluses
+
+- GET d’un objet existant  
+- POST d’un nouvel objet  
+- PUT pour mettre à jour un objet  
+- DELETE puis vérification du 404  
+- Validation de la structure JSON  
+- Test complet du cycle de vie (créer → mettre à jour → vérifier → supprimer)
+
+---
+
+## 🎯 7. Objectif du projet
 
 Ce starter kit vise à :
   - servir de plateforme d’apprentissage QA moderne
